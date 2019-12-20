@@ -1,0 +1,41 @@
+<div class="interp-comp">
+  <h2>The interpolation example component.</h2>
+  <p>{{ textExample }}</p>
+  <p>You can also call a function. {{ getExampleNumber() }}</p>
+
+  <p>Loop over data:</p>
+  <h2>Products</h2>
+
+  <div *ngFor="let product of products">
+    <h3>
+      <a [title]="product.name + ' details'">
+        {{ product.name }}
+      </a>
+    </h3>
+
+    <p *ngIf="product.description">
+      Description: {{ product.description }}
+    </p>
+
+    <button (click)="share()">
+      Share
+    </button>
+
+    <app-product-alerts
+    [product]="product"
+    (notify)="onNotify()">
+  </app-product-alerts>
+
+  </div>
+
+  <p>
+    Hold the pointer over a product name to see the bound name property value,
+    which is the product name plus the word "details". <br />
+    <strong> Interpolation </strong>
+    -<em> double curly brackets </em>- lets you render the property value as
+    text;<br />
+    <strong> Property binding</strong>
+    - <em> single square brackets</em> - lets you use the property value in a
+    template expression.
+  </p>
+</div>
